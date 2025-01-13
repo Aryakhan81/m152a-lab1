@@ -1,0 +1,50 @@
+$date
+	Mon Jan 13 10:54:42 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module model_uart $end
+$var event 1 ! evTxByte $end
+$var event 1 " evTxBit $end
+$var event 1 # evByte $end
+$var event 1 $ evBit $end
+$var wire 1 % RX $end
+$var parameter 32 & baud $end
+$var parameter 32 ' bittime $end
+$var parameter 40 ( name $end
+$var reg 1 ) TX $end
+$var reg 8 * rxData [7:0] $end
+$scope task tskRxData $end
+$var reg 8 + data [7:0] $end
+$upscope $end
+$scope task tskTxData $end
+$var reg 8 , data [7:0] $end
+$var reg 10 - tmp [9:0] $end
+$var integer 32 . i [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b101010101000001010100100101010000110000 (
+b10000111101000 '
+b11100001000000000 &
+$end
+#0
+$dumpvars
+bx .
+bx -
+bx ,
+bx +
+bx *
+1)
+z%
+1$
+1#
+1"
+1!
+$end

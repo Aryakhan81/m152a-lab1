@@ -1,0 +1,20 @@
+push r0 0x0
+send r0
+push r1 0x1
+send r1
+add r0 r1 r2
+send r2
+add r1 r2 r0
+send r0
+add r2 r0 r1
+send r1
+add r0 r1 r2
+send r2
+add r1 r2 r0
+send r0
+add r2 r0 r1
+send r1
+add r0 r1 r2
+send r2
+add r1 r2 r0
+send r0
