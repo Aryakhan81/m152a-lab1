@@ -27,7 +27,7 @@ module tb;
         #1000 btnR = 0;
         #1500000;
 
-        for (i = 0; i < 4; i = i + 1) begin
+        for (i = 0; i < 20; i = i + 1) begin
             $display("Instruction %0d: %b", i, instructions[i]);
             tskRunInst(instructions[i]);
          end
