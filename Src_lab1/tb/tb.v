@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-
+//run iverilog rtl/*.v tb/*.v
 module tb;
 
    reg [7:0] sw;
@@ -8,9 +8,8 @@ module tb;
    reg       btnR;
    
    integer   i;
-   reg [7:0] instructions [0:9];
-   /*AUTOWIRE*/
-   // Beginning of automatic wires (for undeclared instantiated-module outputs)
+   reg [7:0] instructions [0:19];
+   /*AUTOWIRE*/   // Beginning of automatic wires (for undeclared instantiated-module outputs)
    wire                 RsRx;                   // From model_uart0_ of model_uart.v
    wire                 RsTx;                   // From uut_ of basys3.v
    wire [7:0]           led;                    // From uut_ of basys3.v
@@ -21,24 +20,27 @@ module tb;
         //$shm_open  ("dump", , ,1);
         //$shm_probe (tb, "ASTF");
         $readmemb("/Users/aryagharib/Library/CloudStorage/OneDrive-UCLAITServices/School Projects/2024-25/Winter 25/CS M152A/Lab 1/m152a-lab1/Src_lab1/seq.code", instructions);
-        for (i = 0; i < 10; i = i + 1) begin
-            $display("Instruction %0d: %b", i, instructions[i]);
-         end
+
         clk = 0;
         btnR = 1;
         btnS = 0;
         #1000 btnR = 0;
         #1500000;
+
+        for (i = 0; i < 4; i = i + 1) begin
+            $display("Instruction %0d: %b", i, instructions[i]);
+            tskRunInst(instructions[i]);
+         end
         
-        tskRunPUSH(0,4);
-        tskRunPUSH(0,0);
-        tskRunPUSH(1,3);
-        tskRunMULT(0,1,2);
-        tskRunADD(2,0,3);
-        tskRunSEND(0);
-        tskRunSEND(1);
-        tskRunSEND(2);
-        tskRunSEND(3);
+      //   tskRunPUSH(0,4);
+      //   tskRunPUSH(0,0);
+      //   tskRunPUSH(1,3);
+      //   tskRunMULT(0,1,2);
+      //   tskRunADD(2,0,3);
+      //   tskRunSEND(0);
+      //   tskRunSEND(1);
+      //   tskRunSEND(2);
+      //   tskRunSEND(3);
         
         #1000;        
         $finish;
